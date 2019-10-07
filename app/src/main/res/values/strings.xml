@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ColorPicker</string>
+    <string name="title_name">カラーピッカー</string>
+    <string name="R">R</string>
+    <string name="B">B</string>
+    <string name="G">G</string>
+    <string name="zero">0</string>
+    <string name="color">色表示</string>
+</resources>
