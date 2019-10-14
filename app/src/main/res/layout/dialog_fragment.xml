@@ -17,7 +17,6 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        app:srcCompat="@android:color/holo_blue_bright"
         axxndroid:layout_below="@+id/dialogFragmentTitle"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"/>
@@ -79,6 +78,7 @@
         android:text="@string/zero"
         android:layout_toRightOf="@+id/colorBlue"
         android:layout_below="@+id/imageView"/>
+
 
 
 </RelativeLayout>
