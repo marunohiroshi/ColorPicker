@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:axxndroid="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -13,13 +12,16 @@
         android:gravity="center"
         android:text="@string/color" />
 
-    <ImageView
-        android:id="@+id/imageView"
+    <TextView
+        android:id="@+id/fragment"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         axxndroid:layout_below="@+id/dialogFragmentTitle"
         android:layout_marginStart="60dp"
-        android:layout_marginEnd="60dp"/>
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="150dp">
+    </TextView>
+
 
     <TextView
         android:id="@+id/colorRed"
@@ -27,24 +29,28 @@
         android:layout_height="60dp"
         android:gravity="center"
         android:text="@string/R"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/fragment"
+        android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"/>
 
     <TextView
         android:id="@+id/leftColorStrong"
         android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:gravity="center"
+        android:layout_height="60dp"
+        android:gravity="center"
         android:text="@string/zero"
         android:layout_toRightOf="@+id/colorRed"
-        android:layout_below="@+id/imageView"/>
+        android:layout_toEndOf="@+id/colorRed"
+        android:layout_below="@+id/fragment"/>
 
     <TextView
         android:id="@+id/colorGreen"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/fragment"
         android:layout_toRightOf="@+id/leftColorStrong"
+        android:layout_toEndOf="@+id/leftColorStrong"
+
         android:gravity="center"
         android:text="@string/G" />
 
@@ -52,7 +58,7 @@
         android:id="@+id/middleColorStrong"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/fragment"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="0dp"
@@ -68,7 +74,8 @@
         android:gravity="center"
         android:text="@string/B"
         android:layout_toRightOf="@+id/middleColorStrong"
-        android:layout_below="@+id/imageView"/>
+        android:layout_toEndOf="@+id/middleColorStrong"
+        android:layout_below="@+id/fragment"/>
 
     <TextView
         android:id="@+id/rightColorStrong"
@@ -77,8 +84,19 @@
         android:gravity="center"
         android:text="@string/zero"
         android:layout_toRightOf="@+id/colorBlue"
-        android:layout_below="@+id/imageView"/>
+        android:layout_toEndOf="@+id/colorBlue"
+        android:layout_below="@+id/fragment"/>
 
-
+    <Button
+        android:id="@+id/Return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="@string/Return"
+        android:background="@drawable/frame_style"
+        android:layout_below="@+id/rightColorStrong"
+        android:layout_toRightOf="@+id/middleColorStrong"
+        android:layout_toEndOf="@+id/middleColorStrong" />
 
 </RelativeLayout>

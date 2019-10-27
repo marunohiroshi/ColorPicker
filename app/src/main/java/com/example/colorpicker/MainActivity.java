@@ -2,35 +2,31 @@ package com.example.colorpicker;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentManager;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.Serializable;
 import java.util.Locale;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView redColorStrong;
+    public TextView redColorStrong;
     TextView greenColorStrong;
     TextView blueColorStrong;
-    ImageView imageView;
+
+    public static int redProgress;
+    public static int greenProgress;
+    public static int blueProgress;
+    public static String redStr;
+    public static String greenStr;
+    public static String blueStr;
 
 
     @Override
@@ -39,19 +35,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Title");
-        alert.setMessage("Message");
+        alert.setTitle("注意");
+        alert.setMessage("今からカラーピッカーアプリを起動しますか？");
         alert.setPositiveButton("OK", null);
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 //Yesボタンが押された時の処理
-                Toast.makeText(MainActivity.this, "Yes Clicked!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "カラーピッカーを始めます。", Toast.LENGTH_LONG).show();
             }
         });
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 //Noボタンが押された時の処理
-                Toast.makeText(MainActivity.this, "No Clicked!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "問答無用でカラーピッカーを始めます。", Toast.LENGTH_LONG).show();
             }
         });
         alert.show();
@@ -59,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         SeekBar redSeekBar = findViewById(R.id.red_seek_bar);
         SeekBar greenSeekBar = findViewById(R.id.green_seek_bar);
         SeekBar blueSeekBar = findViewById(R.id.blue_seek_bar);
+
 
         //最大値と最小値を設定
         redSeekBar.setMax(255);
@@ -71,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
         redColorStrong = findViewById(R.id.red_color_strong);
         greenColorStrong = findViewById(R.id.green_color_strong);
         blueColorStrong = findViewById(R.id.blue_color_strong);
-        imageView = findViewById(R.id.imageView);
         Button button = findViewById(R.id.display_button);
+
 
         button.setOnClickListener(buttonClick);
 
@@ -80,8 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        String redstr = String.format(Locale.US, "%d", progress);
-                        redColorStrong.setText(redstr);
+                        redStr = String.format(Locale.US, "%d", progress);
+                        redProgress = progress;
+                        redColorStrong.setText(redStr);
                     }
 
                     //つまみがタッチされたときに呼ばれるメソッド
@@ -100,8 +98,9 @@ public class MainActivity extends AppCompatActivity {
                 new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        String redstr = String.format(Locale.US, "%d", progress);
-                        greenColorStrong.setText(redstr);
+                        greenStr = String.format(Locale.US, "%d", progress);
+                        greenProgress = progress;
+                        greenColorStrong.setText(greenStr);
                     }
 
                     //つまみがタッチされたときに呼ばれるメソッド
@@ -120,8 +119,9 @@ public class MainActivity extends AppCompatActivity {
                 new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        String greenstr = String.format(Locale.US, "%d", progress);
-                        blueColorStrong.setText(greenstr);
+                        blueStr = String.format(Locale.US, "%d", progress);
+                        blueProgress = progress;
+                        blueColorStrong.setText(blueStr);
                     }
 
                     //つまみがタッチされたときに呼ばれるメソッド
@@ -136,26 +136,16 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        button.setBackgroundColor(Color.rgb(100, 100, 100));
-
-//        View.OnClickListener display_button_onClickListener = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//            }
-//        };
     }
 
     public OnClickListener buttonClick = new OnClickListener() {
         @Override
         public void onClick(View v) {
             Log.d("debug", "button, Perform action on click");
-
+            Intent intent = new Intent(MainActivity.this, SubActivity.class);
+            startActivity(intent);
         }
     };
-
-    private void setScreenSub() {
-        setContentView(R.layout.dialog_fragment);
-    }
 }
 
 
