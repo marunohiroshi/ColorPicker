@@ -2,13 +2,10 @@ package com.example.colorpicker;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -18,15 +15,18 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     public TextView redColorStrong;
-    TextView greenColorStrong;
-    TextView blueColorStrong;
-
+    public TextView greenColorStrong;
+    public TextView blueColorStrong;
     public static int redProgress;
     public static int greenProgress;
     public static int blueProgress;
     public static String redStr;
     public static String greenStr;
     public static String blueStr;
+    public  TextView fragmentRedStr;
+    public  TextView fragmentGreenStr;
+    public  TextView fragmentBlueStr;
+    public  TextView fragment;
 
 
     @Override
@@ -52,10 +52,20 @@ public class MainActivity extends AppCompatActivity {
         });
         alert.show();
 
-        SeekBar redSeekBar = findViewById(R.id.red_seek_bar);
-        SeekBar greenSeekBar = findViewById(R.id.green_seek_bar);
-        SeekBar blueSeekBar = findViewById(R.id.blue_seek_bar);
-
+        final SeekBar redSeekBar = findViewById(R.id.red_seek_bar);
+        final SeekBar greenSeekBar = findViewById(R.id.green_seek_bar);
+        final SeekBar blueSeekBar = findViewById(R.id.blue_seek_bar);
+        fragmentRedStr = findViewById(R.id.leftColorStrong);
+        fragmentGreenStr = findViewById(R.id.middleColorStrong);
+        fragmentBlueStr = findViewById(R.id.rightColorStrong);
+        fragmentRedStr = findViewById(R.id.leftColorStrong);
+        fragmentGreenStr = findViewById(R.id.middleColorStrong);
+        fragmentBlueStr = findViewById(R.id.rightColorStrong);
+        fragment = findViewById(R.id.fragment);
+        redColorStrong = findViewById(R.id.red_color_strong);
+        greenColorStrong = findViewById(R.id.green_color_strong);
+        blueColorStrong = findViewById(R.id.blue_color_strong);
+        Button button = findViewById(R.id.display_button);
 
         //最大値と最小値を設定
         redSeekBar.setMax(255);
@@ -65,87 +75,63 @@ public class MainActivity extends AppCompatActivity {
         blueSeekBar.setMax(255);
         blueSeekBar.setProgress(0);
 
-        redColorStrong = findViewById(R.id.red_color_strong);
-        greenColorStrong = findViewById(R.id.green_color_strong);
-        blueColorStrong = findViewById(R.id.blue_color_strong);
-        Button button = findViewById(R.id.display_button);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View arg0)
+            {
+                showFragmentDiaolog(DIALOG_FRAGMENT);
+            }
+        });
 
 
-        button.setOnClickListener(buttonClick);
-
-        redSeekBar.setOnSeekBarChangeListener(
-                new SeekBar.OnSeekBarChangeListener() {
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        redStr = String.format(Locale.US, "%d", progress);
-                        redProgress = progress;
-                        redColorStrong.setText(redStr);
-                    }
-
-                    //つまみがタッチされたときに呼ばれるメソッド
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-                    }
-
-                    //つまみがリリースされたときに呼ばれるメソッド
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-                    }
+        SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (seekBar == redSeekBar) {
+                    redStr = String.format(Locale.US, "%d", progress);
+                    redProgress = progress;
+                    redColorStrong.setText(redStr);
+                } else if(seekBar == greenSeekBar) {
+                    greenStr = String.format(Locale.US, "%d", progress);
+                    greenProgress = progress;
+                    greenColorStrong.setText(greenStr);
+                } else if(seekBar == blueSeekBar){
+                    blueStr = String.format(Locale.US, "%d", progress);
+                    blueProgress = progress;
+                    blueColorStrong.setText(blueStr);
                 }
-        );
+            }
 
-        greenSeekBar.setOnSeekBarChangeListener(
-                new SeekBar.OnSeekBarChangeListener() {
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        greenStr = String.format(Locale.US, "%d", progress);
-                        greenProgress = progress;
-                        greenColorStrong.setText(greenStr);
-                    }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
-                    //つまみがタッチされたときに呼ばれるメソッド
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-                    }
-
-                    //つまみがリリースされたときに呼ばれるメソッド
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-                    }
-                }
-        );
-
-        blueSeekBar.setOnSeekBarChangeListener(
-                new SeekBar.OnSeekBarChangeListener() {
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        blueStr = String.format(Locale.US, "%d", progress);
-                        blueProgress = progress;
-                        blueColorStrong.setText(blueStr);
-                    }
-
-                    //つまみがタッチされたときに呼ばれるメソッド
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-                    }
-
-                    //つまみがリリースされたときに呼ばれるメソッド
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-                    }
-                }
-        );
-
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        };
+        redSeekBar.setOnSeekBarChangeListener(listener);
+        blueSeekBar.setOnSeekBarChangeListener(listener);
+        greenSeekBar.setOnSeekBarChangeListener(listener);
     }
 
-    public OnClickListener buttonClick = new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Log.d("debug", "button, Perform action on click");
-            Intent intent = new Intent(MainActivity.this, SubActivity.class);
-            startActivity(intent);
+
+    final int DIALOG_FRAGMENT = 0;
+    public void showFragmentDiaolog(int id)
+    {
+        if (id == DIALOG_FRAGMENT) {
+            TestDialogFragment dialogFragment = TestDialogFragment.newInstance();
+            dialogFragment.show(getSupportFragmentManager(), "dialog_fragment");
+        } else {
+            throw new IllegalStateException("Unexpected value: " + id);
         }
-    };
+    }
+
+    public void onTestDialogOKClick()
+    {
+        Log.i("MainActivity :", "OK clicked");
+    }
 }
 
 

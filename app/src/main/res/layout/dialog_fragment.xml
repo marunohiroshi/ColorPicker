@@ -19,24 +19,23 @@
         axxndroid:layout_below="@+id/dialogFragmentTitle"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="75dp">
     </TextView>
-
 
     <TextView
         android:id="@+id/colorRed"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:gravity="center"
         android:text="@string/R"
         android:layout_below="@+id/fragment"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"/>
 
     <TextView
         android:id="@+id/leftColorStrong"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:gravity="center"
         android:text="@string/zero"
         android:layout_toRightOf="@+id/colorRed"
@@ -45,8 +44,8 @@
 
     <TextView
         android:id="@+id/colorGreen"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/fragment"
         android:layout_toRightOf="@+id/leftColorStrong"
         android:layout_toEndOf="@+id/leftColorStrong"
@@ -56,8 +55,8 @@
 
     <TextView
         android:id="@+id/middleColorStrong"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/fragment"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
@@ -69,8 +68,8 @@
 
     <TextView
         android:id="@+id/colorBlue"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:gravity="center"
         android:text="@string/B"
         android:layout_toRightOf="@+id/middleColorStrong"
@@ -79,24 +78,12 @@
 
     <TextView
         android:id="@+id/rightColorStrong"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:gravity="center"
         android:text="@string/zero"
         android:layout_toRightOf="@+id/colorBlue"
         android:layout_toEndOf="@+id/colorBlue"
-        android:layout_below="@+id/fragment"/>
-
-    <Button
-        android:id="@+id/Return"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:text="@string/Return"
-        android:background="@drawable/frame_style"
-        android:layout_below="@+id/rightColorStrong"
-        android:layout_toRightOf="@+id/middleColorStrong"
-        android:layout_toEndOf="@+id/middleColorStrong" />
+        android:layout_below="@+id/fragment" />
 
 </RelativeLayout>
