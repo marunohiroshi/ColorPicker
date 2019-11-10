@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:axxndroid="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/dialogFragmentTitle"
@@ -16,39 +16,39 @@
         android:id="@+id/fragment"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        axxndroid:layout_below="@+id/dialogFragmentTitle"
         android:layout_marginStart="60dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginTop="75dp">
+        axxndroid:layout_below="@+id/dialogFragmentTitle">
     </TextView>
 
     <TextView
         android:id="@+id/colorRed"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:gravity="center"
-        android:text="@string/R"
         android:layout_below="@+id/fragment"
+        android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginStart="60dp"/>
+        android:gravity="center"
+        android:text="@string/R" />
 
     <TextView
         android:id="@+id/leftColorStrong"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:gravity="center"
-        android:text="@string/zero"
-        android:layout_toRightOf="@+id/colorRed"
+        android:layout_below="@+id/fragment"
         android:layout_toEndOf="@+id/colorRed"
-        android:layout_below="@+id/fragment"/>
+        android:layout_toRightOf="@+id/colorRed"
+        android:gravity="center"
+        android:text="@string/zero" />
 
     <TextView
         android:id="@+id/colorGreen"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_below="@+id/fragment"
-        android:layout_toRightOf="@+id/leftColorStrong"
         android:layout_toEndOf="@+id/leftColorStrong"
+        android:layout_toRightOf="@+id/leftColorStrong"
 
         android:gravity="center"
         android:text="@string/G" />
@@ -70,20 +70,20 @@
         android:id="@+id/colorBlue"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:gravity="center"
-        android:text="@string/B"
-        android:layout_toRightOf="@+id/middleColorStrong"
+        android:layout_below="@+id/fragment"
         android:layout_toEndOf="@+id/middleColorStrong"
-        android:layout_below="@+id/fragment"/>
+        android:layout_toRightOf="@+id/middleColorStrong"
+        android:gravity="center"
+        android:text="@string/B" />
 
     <TextView
         android:id="@+id/rightColorStrong"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:gravity="center"
-        android:text="@string/zero"
-        android:layout_toRightOf="@+id/colorBlue"
+        android:layout_below="@+id/fragment"
         android:layout_toEndOf="@+id/colorBlue"
-        android:layout_below="@+id/fragment" />
+        android:layout_toRightOf="@+id/colorBlue"
+        android:gravity="center"
+        android:text="@string/zero" />
 
 </RelativeLayout>
