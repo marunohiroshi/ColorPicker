@@ -5,9 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     public TextView fragmentGreenStr;
     public TextView fragmentBlueStr;
     public TextView fragment;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (seekBar == redSeekBar) {
@@ -83,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showFragmentDialog() {
-        TestDialogFragment dialogFragment = TestDialogFragment.newInstance();
+        TestDialogFragment dialogFragment = TestDialogFragment.newInstance(redProgress, greenProgress, blueProgress);
         dialogFragment.show(getSupportFragmentManager(), "dialog_fragment");
     }
 }
