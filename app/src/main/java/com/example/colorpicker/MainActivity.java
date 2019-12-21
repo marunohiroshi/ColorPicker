@@ -1,12 +1,18 @@
 package com.example.colorpicker;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.Locale;
 
@@ -15,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView redColorStrong;
     private TextView greenColorStrong;
     private TextView blueColorStrong;
-    public static int redProgress;
+    public static int redProgress = 0;
     public static int greenProgress;
     public static int blueProgress;
     public static String redStr;
@@ -25,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     public TextView fragmentGreenStr;
     public TextView fragmentBlueStr;
     public TextView fragment;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
         blueColorStrong = findViewById(R.id.blue_color_strong);
         Button button = findViewById(R.id.display_button);
 
+        TestDialogFragment tdf = new TestDialogFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("KEY1", redProgress);
+        tdf.setArguments(bundle);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -52,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (seekBar == redSeekBar) {
@@ -86,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
         TestDialogFragment dialogFragment = TestDialogFragment.newInstance();
         dialogFragment.show(getSupportFragmentManager(), "dialog_fragment");
     }
+
+
+
 }
 
 
