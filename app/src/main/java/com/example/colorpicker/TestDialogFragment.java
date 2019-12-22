@@ -13,13 +13,11 @@ import androidx.annotation.NonNull;
 
 public class TestDialogFragment extends androidx.fragment.app.DialogFragment {
 
-    String string = getString(R.string.KEY_RED);
 
     static TestDialogFragment newInstance(int red, int green, int blue) {
-
         TestDialogFragment tdf = new TestDialogFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt(string, red);
+        bundle.putInt("KEY_RED", red);
         bundle.putInt("KEY_GREEN", green);
         bundle.putInt("KEY_BLUE", blue);
         tdf.setArguments(bundle);
@@ -29,7 +27,6 @@ public class TestDialogFragment extends androidx.fragment.app.DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-
         final Activity activity = getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         final View dialogView;
@@ -41,7 +38,7 @@ public class TestDialogFragment extends androidx.fragment.app.DialogFragment {
     @Override
     public void onStart() {
         super.onStart();
-        int redInt = getArguments().getInt(string);
+        int redInt = getArguments().getInt("KEY_RED");
         int GreenInt = getArguments().getInt("KEY_GREEN");
         int BlueInt = getArguments().getInt("KEY_BLUE");
         TextView fragment = getDialog().findViewById(R.id.fragment);

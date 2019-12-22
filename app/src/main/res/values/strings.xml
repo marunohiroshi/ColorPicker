@@ -7,7 +7,7 @@
     <string name="zero">0</string>
     <string name="color">色表示</string>
     <string name="Return">元の画面に戻る</string>
-    <string name="KEY_RED">0</string>
-    <string name="KEY_GREEN">0</string>
-    <string name="KEY_BLUE">0</string>
+    <string name="KEY_RED">KEY_RED</string>
+    <string name="KEY_GREEN">KEY_GREEN</string>
+    <string name="KEY_BLUE">KEY_BLUE</string>
 </resources>

@@ -5,7 +5,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public TextView fragmentGreenStr;
     public TextView fragmentBlueStr;
     public TextView fragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
