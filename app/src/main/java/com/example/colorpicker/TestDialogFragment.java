@@ -13,12 +13,15 @@ import androidx.annotation.NonNull;
 
 public class TestDialogFragment extends androidx.fragment.app.DialogFragment {
 
+    String string = getString(R.string.KEY_RED);
+
     static TestDialogFragment newInstance(int red, int green, int blue) {
+
         TestDialogFragment tdf = new TestDialogFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt("KEY_RED", red);
-        bundle.putInt("KEY_GREEN",green);
-        bundle.putInt("KEY_BLUE",blue);
+        bundle.putInt(string, red);
+        bundle.putInt("KEY_GREEN", green);
+        bundle.putInt("KEY_BLUE", blue);
         tdf.setArguments(bundle);
         return tdf;
     }
@@ -38,26 +41,26 @@ public class TestDialogFragment extends androidx.fragment.app.DialogFragment {
     @Override
     public void onStart() {
         super.onStart();
-        int R_int = getArguments().getInt("KEY_RED");
-        int G_int = getArguments().getInt("KEY_GREEN");
-        int B_int = getArguments().getInt("KEY_BLUE");
+        int redInt = getArguments().getInt(string);
+        int GreenInt = getArguments().getInt("KEY_GREEN");
+        int BlueInt = getArguments().getInt("KEY_BLUE");
         TextView fragment = getDialog().findViewById(R.id.fragment);
         TextView fragmentRedStr = getDialog().findViewById(R.id.leftColorStrong);
         TextView fragmentGreenStr = getDialog().findViewById(R.id.middleColorStrong);
         TextView fragmentBlueStr = getDialog().findViewById(R.id.rightColorStrong);
-        fragment.setBackgroundColor(Color.rgb(R_int, G_int, B_int));
+        fragment.setBackgroundColor(Color.rgb(redInt, GreenInt, BlueInt));
 
-        if (R_int == 0) {
+        if (redInt == 0) {
             fragmentRedStr.setText("0");
         } else {
             fragmentRedStr.setText(MainActivity.redStr);
         }
-        if (G_int == 0) {
+        if (GreenInt == 0) {
             fragmentGreenStr.setText("0");
         } else {
             fragmentGreenStr.setText(MainActivity.greenStr);
         }
-        if (B_int == 0) {
+        if (BlueInt == 0) {
             fragmentBlueStr.setText("0");
         } else {
             fragmentBlueStr.setText(MainActivity.blueStr);

@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView redColorStrong;
     private TextView greenColorStrong;
     private TextView blueColorStrong;
-    public static int redProgress;
-    public static int greenProgress;
-    public static int blueProgress;
+    private static int redProgress;
+    private static int greenProgress;
+    private static int blueProgress;
     public static String redStr;
     public static String greenStr;
     public static String blueStr;
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         greenColorStrong = findViewById(R.id.green_color_strong);
         blueColorStrong = findViewById(R.id.blue_color_strong);
         Button button = findViewById(R.id.display_button);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

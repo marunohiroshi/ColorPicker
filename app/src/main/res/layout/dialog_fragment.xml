@@ -40,7 +40,7 @@
         android:layout_toEndOf="@+id/colorRed"
         android:layout_toRightOf="@+id/colorRed"
         android:gravity="center"
-        android:text="@string/zero" />
+        android:text="@string/KEY_RED" />
 
     <TextView
         android:id="@+id/colorGreen"
@@ -64,7 +64,7 @@
         android:layout_toEndOf="@+id/colorGreen"
         android:layout_toRightOf="@+id/colorGreen"
         android:gravity="center"
-        android:text="@string/zero" />
+        android:text="@string/KEY_GREEN" />
 
     <TextView
         android:id="@+id/colorBlue"
@@ -84,6 +84,6 @@
         android:layout_toEndOf="@+id/colorBlue"
         android:layout_toRightOf="@+id/colorBlue"
         android:gravity="center"
-        android:text="@string/zero" />
+        android:text="@string/KEY_BLUE" />
 
 </RelativeLayout>
