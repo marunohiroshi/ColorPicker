@@ -12,14 +12,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 public class TestDialogFragment extends androidx.fragment.app.DialogFragment {
+    private final static String redKey = "KEY_RED";
+    private final static String greenKey = "KEY_GREEN";
+    private final static String blueKey = "KEY_BLUE";
 
 
     static TestDialogFragment newInstance(int red, int green, int blue) {
         TestDialogFragment tdf = new TestDialogFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt("KEY_RED", red);
-        bundle.putInt("KEY_GREEN", green);
-        bundle.putInt("KEY_BLUE", blue);
+        bundle.putInt(redKey, red);
+        bundle.putInt(greenKey, green);
+        bundle.putInt(blueKey, blue);
         tdf.setArguments(bundle);
         return tdf;
     }
@@ -38,9 +41,9 @@ public class TestDialogFragment extends androidx.fragment.app.DialogFragment {
     @Override
     public void onStart() {
         super.onStart();
-        int redInt = getArguments().getInt("KEY_RED");
-        int GreenInt = getArguments().getInt("KEY_GREEN");
-        int BlueInt = getArguments().getInt("KEY_BLUE");
+        int redInt = getArguments().getInt(redKey);
+        int GreenInt = getArguments().getInt(greenKey);
+        int BlueInt = getArguments().getInt(blueKey);
         TextView fragment = getDialog().findViewById(R.id.fragment);
         TextView fragmentRedStr = getDialog().findViewById(R.id.leftColorStrong);
         TextView fragmentGreenStr = getDialog().findViewById(R.id.middleColorStrong);
