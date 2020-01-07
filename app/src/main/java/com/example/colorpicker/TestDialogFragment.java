@@ -13,23 +13,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 public class TestDialogFragment extends DialogFragment {
-    private static final String redIntKey = "redIntKey";
-    private static final String greenIntKey = "greenIntKey";
-    private static final String blueIntKey = "blueIntKey";
-    private static final String redStringKey = "redStringKey";
-    private static final String greenStringKey = "greenStringKey";
-    private static final String blueStringKey = "blueStringKey";
+    private static final String key_red = "KEY_RED";
+    private static final String key_green = "KEY_GREEN";
+    private static final String key_blue = "KEY_BLUE";
 
-
-    static TestDialogFragment newInstance(int red, int green, int blue, String redstr, String greenstr, String bluestr) {
+    static TestDialogFragment newInstance(int red, int green, int blue) {
         TestDialogFragment tdf = new TestDialogFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt(redIntKey, red);
-        bundle.putInt(greenIntKey, green);
-        bundle.putInt(blueIntKey, blue);
-        bundle.putString(redStringKey, redstr);
-        bundle.putString(greenStringKey, greenstr);
-        bundle.putString(blueStringKey, bluestr);
+        bundle.putInt(key_red, red);
+        bundle.putInt(key_green, green);
+        bundle.putInt(key_blue, blue);
         tdf.setArguments(bundle);
         return tdf;
     }
@@ -37,10 +30,9 @@ public class TestDialogFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final Activity activity = getActivity();
+        Activity activity = getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        final View dialogView;
-        dialogView = LayoutInflater.from(activity).inflate(R.layout.dialog_fragment, null);
+        View dialogView = LayoutInflater.from(activity).inflate(R.layout.dialog_fragment, null);
         builder.setView(dialogView);
         return builder.create();
     }
@@ -48,32 +40,20 @@ public class TestDialogFragment extends DialogFragment {
     @Override
     public void onStart() {
         super.onStart();
-        int redInt = getArguments().getInt(redIntKey);
-        int greenInt = getArguments().getInt(greenIntKey);
-        int blueInt = getArguments().getInt(blueIntKey);
-        String redString = getArguments().getString(redStringKey);
-        String greenString = getArguments().getString(greenStringKey);
-        String blueString = getArguments().getString(blueStringKey);
+        int redInt = getArguments().getInt(key_red,0);
+        int greenInt = getArguments().getInt(key_green,0);
+        int blueInt = getArguments().getInt(key_blue,0);
         TextView fragment = getDialog().findViewById(R.id.fragment);
         TextView fragmentRedStr = getDialog().findViewById(R.id.leftColorStrong);
         TextView fragmentGreenStr = getDialog().findViewById(R.id.middleColorStrong);
         TextView fragmentBlueStr = getDialog().findViewById(R.id.rightColorStrong);
         fragment.setBackgroundColor(Color.rgb(redInt, greenInt, blueInt));
+        String red = String.valueOf(redInt);
+        String green = String.valueOf(greenInt);
+        String blue = String.valueOf(blueInt);
 
-        if (redInt == 0) {
-            fragmentRedStr.setText("0");
-        } else {
-            fragmentRedStr.setText(redString);
-        }
-        if (greenInt == 0) {
-            fragmentGreenStr.setText("0");
-        } else {
-            fragmentGreenStr.setText(greenString);
-        }
-        if (blueInt == 0) {
-            fragmentBlueStr.setText("0");
-        } else {
-            fragmentBlueStr.setText(blueString);
-        }
+        fragmentRedStr.setText(red);
+        fragmentGreenStr.setText(green);
+        fragmentBlueStr.setText(blue);
     }
 }

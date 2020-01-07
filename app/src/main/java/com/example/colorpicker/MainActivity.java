@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     public  String redStr;
     public  String greenStr;
     public  String blueStr;
-    public TextView fragment;
 
 
     @Override
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         final SeekBar redSeekBar = findViewById(R.id.red_seek_bar);
         final SeekBar greenSeekBar = findViewById(R.id.green_seek_bar);
         final SeekBar blueSeekBar = findViewById(R.id.blue_seek_bar);
-        fragment = findViewById(R.id.fragment);
         redColorStrong = findViewById(R.id.red_color_strong);
         greenColorStrong = findViewById(R.id.green_color_strong);
         blueColorStrong = findViewById(R.id.blue_color_strong);
@@ -78,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showFragmentDialog() {
-        TestDialogFragment dialogFragment = TestDialogFragment.newInstance(redProgress, greenProgress, blueProgress, redStr, greenStr, blueStr);
+        TestDialogFragment dialogFragment = TestDialogFragment.newInstance(redProgress, greenProgress, blueProgress);
         dialogFragment.show(getSupportFragmentManager(), "dialog_fragment");
     }
 }
