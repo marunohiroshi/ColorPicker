@@ -13,16 +13,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 public class TestDialogFragment extends DialogFragment {
-    private static final String key_red = "KEY_RED";
-    private static final String key_green = "KEY_GREEN";
-    private static final String key_blue = "KEY_BLUE";
+    private static final String KEY_RED = "KEY_RED";
+    private static final String KEY_GREEN = "KEY_GREEN";
+    private static final String KEY_BLUE = "KEY_BLUE";
 
      public static TestDialogFragment newInstance(int red, int green, int blue) {
         TestDialogFragment tdf = new TestDialogFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt(key_red, red);
-        bundle.putInt(key_green, green);
-        bundle.putInt(key_blue, blue);
+        bundle.putInt(KEY_RED, red);
+        bundle.putInt(KEY_GREEN, green);
+        bundle.putInt(KEY_BLUE, blue);
         tdf.setArguments(bundle);
         return tdf;
     }
@@ -45,9 +45,9 @@ public class TestDialogFragment extends DialogFragment {
         int greenInt = 0;
         int blueInt = 0;
         if (bundle != null) {
-            redInt = bundle.getInt(key_red, 0);
-            greenInt =bundle.getInt(key_green,0);
-            blueInt = bundle.getInt(key_blue,0);
+            redInt = bundle.getInt(KEY_RED, 0);
+            greenInt =bundle.getInt(KEY_GREEN,0);
+            blueInt = bundle.getInt(KEY_BLUE,0);
         }
         Dialog dialog = getDialog();
         TextView fragment = dialog.findViewById(R.id.fragment);
