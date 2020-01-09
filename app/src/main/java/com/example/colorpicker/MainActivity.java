@@ -15,12 +15,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView redValueView;
     private TextView greenValueView;
     private TextView blueValueView;
-    private int redProgress;
-    private int greenProgress;
-    private int blueProgress;
-    public  String redStr;
-    public  String greenStr;
-    public  String blueStr;
     private SeekBar redSeekBar;
     private SeekBar greenSeekBar;
     private SeekBar blueSeekBar;
@@ -48,16 +42,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                String redStr;
+                String greenStr;
+                String blueStr;
                 if (seekBar == redSeekBar) {
                     redStr = String.format(Locale.US, "%d", progress);
                     redValueView.setText(redStr);
                 } else if (seekBar == greenSeekBar) {
                     greenStr = String.format(Locale.US, "%d", progress);
-                    greenProgress = progress;
                     greenValueView.setText(greenStr);
                 } else if (seekBar == blueSeekBar) {
                     blueStr = String.format(Locale.US, "%d", progress);
-                    blueProgress = progress;
                     blueValueView.setText(blueStr);
                 }
             }
@@ -76,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showFragmentDialog() {
-        TestDialogFragment dialogFragment = TestDialogFragment.newInstance(redSeekBar.getProgress(), greenProgress, blueProgress);
+        TestDialogFragment dialogFragment = TestDialogFragment.newInstance(redSeekBar.getProgress(), greenSeekBar.getProgress(), blueSeekBar.getProgress());
         dialogFragment.show(getSupportFragmentManager(), "dialog_fragment");
     }
 }
