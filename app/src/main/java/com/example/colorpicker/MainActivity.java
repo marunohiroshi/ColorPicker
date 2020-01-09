@@ -21,16 +21,17 @@ public class MainActivity extends AppCompatActivity {
     public  String redStr;
     public  String greenStr;
     public  String blueStr;
-
+    private SeekBar redSeekBar;
+    private SeekBar greenSeekBar;
+    private SeekBar blueSeekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        final SeekBar redSeekBar = findViewById(R.id.red_seek_bar);
-        final SeekBar greenSeekBar = findViewById(R.id.green_seek_bar);
-        final SeekBar blueSeekBar = findViewById(R.id.blue_seek_bar);
+        redSeekBar = findViewById(R.id.red_seek_bar);
+        greenSeekBar = findViewById(R.id.green_seek_bar);
+        blueSeekBar = findViewById(R.id.blue_seek_bar);
         redValueView = findViewById(R.id.red_color_strong);
         greenValueView = findViewById(R.id.green_color_strong);
         blueValueView = findViewById(R.id.blue_color_strong);
@@ -43,13 +44,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
+        final SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (seekBar == redSeekBar) {
                     redStr = String.format(Locale.US, "%d", progress);
-                    redProgress = progress;
                     redValueView.setText(redStr);
                 } else if (seekBar == greenSeekBar) {
                     greenStr = String.format(Locale.US, "%d", progress);
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showFragmentDialog() {
-        TestDialogFragment dialogFragment = TestDialogFragment.newInstance(redProgress, greenProgress, blueProgress);
+        TestDialogFragment dialogFragment = TestDialogFragment.newInstance(redSeekBar.getProgress(), greenProgress, blueProgress);
         dialogFragment.show(getSupportFragmentManager(), "dialog_fragment");
     }
 }
