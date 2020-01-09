@@ -12,9 +12,9 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView redColorStrong;
-    private TextView greenColorStrong;
-    private TextView blueColorStrong;
+    private TextView redValueView;
+    private TextView greenValueView;
+    private TextView blueValueView;
     private int redProgress;
     private int greenProgress;
     private int blueProgress;
@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         final SeekBar redSeekBar = findViewById(R.id.red_seek_bar);
         final SeekBar greenSeekBar = findViewById(R.id.green_seek_bar);
         final SeekBar blueSeekBar = findViewById(R.id.blue_seek_bar);
-        redColorStrong = findViewById(R.id.red_color_strong);
-        greenColorStrong = findViewById(R.id.green_color_strong);
-        blueColorStrong = findViewById(R.id.blue_color_strong);
+        redValueView = findViewById(R.id.red_color_strong);
+        greenValueView = findViewById(R.id.green_color_strong);
+        blueValueView = findViewById(R.id.blue_color_strong);
         Button button = findViewById(R.id.display_button);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -50,15 +50,15 @@ public class MainActivity extends AppCompatActivity {
                 if (seekBar == redSeekBar) {
                     redStr = String.format(Locale.US, "%d", progress);
                     redProgress = progress;
-                    redColorStrong.setText(redStr);
+                    redValueView.setText(redStr);
                 } else if (seekBar == greenSeekBar) {
                     greenStr = String.format(Locale.US, "%d", progress);
                     greenProgress = progress;
-                    greenColorStrong.setText(greenStr);
+                    greenValueView.setText(greenStr);
                 } else if (seekBar == blueSeekBar) {
                     blueStr = String.format(Locale.US, "%d", progress);
                     blueProgress = progress;
-                    blueColorStrong.setText(blueStr);
+                    blueValueView.setText(blueStr);
                 }
             }
 
