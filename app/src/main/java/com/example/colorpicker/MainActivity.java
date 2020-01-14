@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
         redSeekBar = findViewById(R.id.red_seek_bar);
         greenSeekBar = findViewById(R.id.green_seek_bar);
         blueSeekBar = findViewById(R.id.blue_seek_bar);
-        redValueView = findViewById(R.id.red_color_strong);
-        greenValueView = findViewById(R.id.green_color_strong);
-        blueValueView = findViewById(R.id.blue_color_strong);
+        redValueView = findViewById(R.id.red_value_view);
+        greenValueView = findViewById(R.id.green_value_view);
+        blueValueView = findViewById(R.id.blue_value_view);
         Button button = findViewById(R.id.display_button);
 
         button.setOnClickListener(new View.OnClickListener() {

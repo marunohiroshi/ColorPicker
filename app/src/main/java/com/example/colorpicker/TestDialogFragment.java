@@ -17,7 +17,7 @@ public class TestDialogFragment extends DialogFragment {
     private static final String KEY_GREEN = "KEY_GREEN";
     private static final String KEY_BLUE = "KEY_BLUE";
 
-     public static TestDialogFragment newInstance(int red, int green, int blue) {
+     static TestDialogFragment newInstance(int red, int green, int blue) {
         TestDialogFragment tdf = new TestDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(KEY_RED, red);
@@ -51,9 +51,9 @@ public class TestDialogFragment extends DialogFragment {
         }
         Dialog dialog = getDialog();
         TextView fragment = dialog.findViewById(R.id.fragment);
-        TextView fragmentRedStr = dialog.findViewById(R.id.leftColorStrong);
-        TextView fragmentGreenStr = dialog.findViewById(R.id.middleColorStrong);
-        TextView fragmentBlueStr = dialog.findViewById(R.id.rightColorStrong);
+        TextView fragmentRedStr = dialog.findViewById(R.id.leftValueView);
+        TextView fragmentGreenStr = dialog.findViewById(R.id.middleValueView);
+        TextView fragmentBlueStr = dialog.findViewById(R.id.rightValueView);
         fragment.setBackgroundColor(Color.rgb(redInt, greenInt, blueInt));
         String red = String.valueOf(redInt);
         String green = String.valueOf(greenInt);
