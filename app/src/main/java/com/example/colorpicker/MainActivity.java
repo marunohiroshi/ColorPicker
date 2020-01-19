@@ -42,18 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                String redStr;
-                String greenStr;
-                String blueStr;
                 if (seekBar == redSeekBar) {
-                    redStr = String.format(Locale.US, "%d", progress);
-                    redValueView.setText(redStr);
+                    redValueView.setText(String.format(Locale.US, "%d", progress));
                 } else if (seekBar == greenSeekBar) {
-                    greenStr = String.format(Locale.US, "%d", progress);
-                    greenValueView.setText(greenStr);
+                    greenValueView.setText(String.format(Locale.US, "%d", progress));
                 } else if (seekBar == blueSeekBar) {
-                    blueStr = String.format(Locale.US, "%d", progress);
-                    blueValueView.setText(blueStr);
+                    blueValueView.setText(String.format(Locale.US, "%d", progress));
                 }
             }
 
