@@ -20,8 +20,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="75dp"
         android:layout_marginEnd="60dp"
-        axxndroid:layout_below="@+id/dialogFragmentTitle">
-    </TextView>
+        axxndroid:layout_below="@+id/dialogFragmentTitle"></TextView>
 
     <TextView
         android:id="@+id/colorRed"

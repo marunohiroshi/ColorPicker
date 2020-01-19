@@ -17,7 +17,7 @@ public class TestDialogFragment extends DialogFragment {
     private static final String KEY_GREEN = "KEY_GREEN";
     private static final String KEY_BLUE = "KEY_BLUE";
 
-     static TestDialogFragment newInstance(int red, int green, int blue) {
+    static TestDialogFragment newInstance(int red, int green, int blue) {
         TestDialogFragment tdf = new TestDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(KEY_RED, red);
@@ -46,8 +46,8 @@ public class TestDialogFragment extends DialogFragment {
         int blueInt = 0;
         if (bundle != null) {
             redInt = bundle.getInt(KEY_RED, 0);
-            greenInt =bundle.getInt(KEY_GREEN,0);
-            blueInt = bundle.getInt(KEY_BLUE,0);
+            greenInt = bundle.getInt(KEY_GREEN, 0);
+            blueInt = bundle.getInt(KEY_BLUE, 0);
         }
         Dialog dialog = getDialog();
         TextView fragment = dialog.findViewById(R.id.fragment);
